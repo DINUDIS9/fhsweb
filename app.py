@@ -41,10 +41,10 @@ def index():
                     level_json = json.load(f)
                 players_json = [v['value']['RawData']['value']['object']['SaveParameter']['value'] for v in level_json['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] if 'IsPlayer' in v['value']['RawData']['value']['object']['SaveParameter']['value'] and v['value']['RawData']['value']['object']['SaveParameter']['value']['IsPlayer']['value']]
                 players = [f'{v["NickName"]["value"]} (Lvl.{ v["Level"]["value"] if "Level" in v else "0"})' for v in players_json]
-                return render_template('https://syed2.iadameng.com/game/recordingstudiomarking/dss/fe/select_players.html', players=players)
+                return render_template('select_players.html', players=players)
             else:
                 return "Invalid file format. Please select a .sav file."
-    return render_template('https://syed2.iadameng.com/game/recordingstudiomarking/dss/fe/index.html')
+    return render_template('index.html')
 
 @app.route('/migrate', methods=['POST'])
 def migrate():
