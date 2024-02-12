@@ -1,1 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Players</title>
+</head>
+<body>
+    <h1>Select Players</h1>
+    <form action="https://fhswebnewapp.onrender.com/migrate" method="post">
+        <label for="old_player">Select the old player account (this progress will me migrated):</label><br>
+        <select name="old_player" id="old_player">
+            {% for player in players %}
+                <option value="{{ loop.index0 }}">{{ player }}</option>
+            {% endfor %}
+        </select><br>
 
+        <label for="new_player">Select the new player account (this progress will be lost):</label><br>
+        <select name="new_player" id="new_player">
+            {% for player in players %}
+                <option value="{{ loop.index0 }}">{{ player }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Migrate</button>
+    </form>
+</body>
+</html>
