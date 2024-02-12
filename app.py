@@ -9,7 +9,8 @@ CORS(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    print("Hello World")
+    return "Hello World"
 
 @app.route('/migrate', methods=['POST'])
 def migrate():
